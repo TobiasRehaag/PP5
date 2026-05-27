@@ -44,7 +44,26 @@ In this exercise you will:
 
 ```bash
 # Paste here the sequence of git commands you ran
+ 1 mkdir ~/git-test
+ 2 cd ~/git-test
+ 3 git init
+ 4 git checkout -b feature-1
+ 5 echo "Ich habe ein neues Verzeichnis erstellt und ein Git-Repository initialisiert. In diesem habe ich ein einen branch neames feature-1 angelegt und dort eine Datei feature.txt erstellt." > feature.txt
+ 6 git add feature.txt
+ 7 git commit -m "Add feature.txt in feature-1"
+ 8 git checkout -b main
+ 9 git merge feature-1
+10 git status
 # and the relevant terminal output (e.g., branch listing, merge messages)
+ 1-3 Initialized empty Git repository in /home/TobiasR/git-test/.git/
+ 4 Switched to a new branch 'feature-1'
+ 7 [feature-1 670a990] Add feature.txt with description 1 file changed, 16 insertions(+), 1  deletion(-)
+ 8 Switched to a new branch 'main'
+ 9  1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+10 On branch main
+nothing to commit, working tree clean
+ 
 ```
 
 ---
@@ -68,6 +87,21 @@ In this exercise you will:
 
 ```bash
 # Paste here the push & clone commands and outputs
+git remote add origin-ssh TobiasR@128.140.85.215:~/repos/myproject.git
+git push origin-ssh main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 250 bytes | 250.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To youruser@vorlesungsserver:~/repos/myproject.git
+ * [new branch]      main -> main
+cd ~
+git clone TobiasR@vorlesungsserver:~/repos/myproject.git myproject-test
+Cloning into 'myproject-test'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (3/3), done.
+Receiving objects: 100% (3/3), 259 bytes | 259.00 KiB/s, done.
 ```
 
 ---
@@ -90,6 +124,26 @@ In this exercise you will:
 
 ```bash
 # Paste here the remote‐adding & push outputs
+TobiasR@vorlesung:~/git-test$ git push github main --force
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 3 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (12/12), 1.51 KiB | 1.51 MiB/s, done.
+Total 12 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+To github.com:TobiasRehaag/myproject-gh.git
+ + 8070c7b...9c9639f main -> main (forced update)
+
+
+
+git push gitlab main 
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 3 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (12/12), 1.51 KiB | 1.51 MiB/s, done.
+Total 12 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
 ```
 
 ---
